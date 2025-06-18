@@ -80,24 +80,60 @@ class _HomeScreenState extends State<HomeScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadiusGeometry.circular(16),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadiusGeometry.vertical(
-                            top: Radius.circular(16),
+                    child: Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: Stack(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: SizedBox(
+                                  width: 160,
+                                  child: Image.asset(
+                                    place.image!,
+                                    fit: BoxFit.cover,
+                                    height: 120,
+                                    width: double.infinity,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 8),
+                              Expanded(
+                                child: Column(
+                                  spacing: 6,
+                                  children: [
+                                    Text(
+                                      place.name!,
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      place.description!,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          child: Container(
-                            width: 160,
-                            child: Image.asset(
-                              place.image!,
-                              fit: BoxFit.cover,
-                              height: 120,
-                              width: double.infinity,
+                          Positioned(
+                            left: 2,
+                            top: 2,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Text(place.type!),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },
