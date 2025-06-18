@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               SizedBox(width: 8),
                               Expanded(
                                 child: Column(
-                                  spacing: 6,
+                                  spacing: 2,
                                   children: [
                                     Text(
                                       place.name!,
@@ -111,9 +111,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
+                                    //TODO: Add breaking text
                                     Text(
                                       place.description!,
+                                      
+                                      maxLines: 3,
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(),
                                     ),
                                   ],
                                 ),
@@ -122,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Positioned(
                             left: 2,
-                            top: 2,
+                            top: 6,
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
